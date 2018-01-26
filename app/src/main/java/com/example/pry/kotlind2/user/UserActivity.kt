@@ -22,7 +22,7 @@ class UserActivity : AppCompatActivity() {
                     .setAction("Action", null).show()
         }
 
-        (application as App).appComponent.inject(this)
+//        (application as App).appComponent.inject(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
