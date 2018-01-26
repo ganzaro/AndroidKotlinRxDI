@@ -1,0 +1,38 @@
+
+create di structure
+
+create auth functionality
+
+    loginActivity
+    Reg...
+    Reset...
+
+    rest client
+    db room
+
+
+what rest endpoint will i need ?
+what database tables ?
+
+
+
+
+
+steps
+    get di working
+    add rest
+        get json from webservice, process it
+
+    add db, repo
+    add mvvm
+
+
+
+//  https://randomuser.me/api/?inc=gender,name,nat
+
+users module
+    user activity
+    user repo
+    user rest
+    user db
+    user model
