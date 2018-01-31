@@ -18,8 +18,20 @@
         android:supportsRtl="true"
         android:name=".App"
         android:theme="@style/AppTheme">
+        <!--<activity-->
+            <!--android:name=".randomuser.UserActivity"-->
+            <!--android:label="@string/app_name"-->
+            <!--android:theme="@style/AppTheme.NoActionBar">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <!--<activity android:name=".githubrepos.GithubRepoActivity"></activity>-->
         <activity
-            android:name=".randomuser.UserActivity"
+            android:name=".githubrepos.GithubRepoActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -28,6 +40,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".auth.LoginActivity"
             android:label="@string/title_activity_login"></activity>

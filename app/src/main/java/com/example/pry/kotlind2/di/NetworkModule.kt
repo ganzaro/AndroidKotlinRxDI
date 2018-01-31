@@ -1,5 +1,6 @@
 package com.example.pry.kotlind2.di
 
+import com.example.pry.kotlind2.githubrepos.IGithubApi
 import com.example.pry.kotlind2.randomuser.IUserApi
 import com.squareup.moshi.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
@@ -23,7 +24,7 @@ class NetworkModule {
 
     private companion object {
 //        const val BASE_URL = "https://randomuser.me/api/"
-        const val BASE_URL = "http://api.github.com/"
+        const val BASE_URL = "https://api.github.com/"
 
     }
 //    companion object {
@@ -83,6 +84,13 @@ class NetworkModule {
     fun provideUserApi(retro: Retrofit): IUserApi {
         return retro.create(IUserApi::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideGithubRepoApi(retro: Retrofit): IGithubApi {
+        return retro.create(IGithubApi::class.java)
+    }
+
 
 
 

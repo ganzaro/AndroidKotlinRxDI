@@ -14,7 +14,10 @@ import dagger.android.ContributesAndroidInjector
 
 @Module abstract class ActivityBuilder {
 
-    @ContributesAndroidInjector(modules=arrayOf(UserActivityModule::class, GithubRepoActivityModule::class))
+    @ContributesAndroidInjector(modules=arrayOf(UserActivityModule::class))
     abstract fun bindUserActivitiy(): UserActivity
+
+    @ContributesAndroidInjector(modules=arrayOf(GithubRepoActivityModule::class))
     abstract fun bindGithubRepoActivity(): GithubRepoActivity
+
 }
