@@ -7,7 +7,7 @@ import javax.inject.Inject
  * Created by pry on 23/01/2018.
  */
 
-class UserRepo @Inject constructor(private val userApiClient: IUserApi) {
+class UserRepository @Inject constructor(private val userApiClient: IUserApi) {
 
     fun getUser(): Observable<Result> {
         return userApiClient.getUser()

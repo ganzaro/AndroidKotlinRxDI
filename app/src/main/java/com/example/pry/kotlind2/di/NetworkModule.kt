@@ -21,6 +21,11 @@ import javax.inject.Singleton
 @Module
 class NetworkModule {
 
+    private companion object {
+//        const val BASE_URL = "https://randomuser.me/api/"
+        const val BASE_URL = "http://api.github.com/"
+
+    }
 //    companion object {
 //        private const val NAME_BASE_URL = "NAME_BASE_URL"
 //    }
@@ -61,7 +66,8 @@ class NetworkModule {
     @Provides
     @Singleton
     fun providesRetroBuilder(client: OkHttpClient, moshi: Moshi): Retrofit {
-        val BASE_URL = "https://randomuser.me/api/"
+//        val BASE_URL = "https://randomuser.me/api/"
+//        private val BASE_URL = "http://api.github.com/"
 
         return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))

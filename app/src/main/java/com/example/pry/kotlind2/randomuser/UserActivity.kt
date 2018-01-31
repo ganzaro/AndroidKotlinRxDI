@@ -18,7 +18,7 @@ import javax.inject.Inject
 
 class UserActivity : AppCompatActivity() {
 
-    @Inject lateinit var mUserRepo: UserRepo
+    @Inject lateinit var mUserRepo: UserRepository
 
     private var disposable: Disposable? = null
 
