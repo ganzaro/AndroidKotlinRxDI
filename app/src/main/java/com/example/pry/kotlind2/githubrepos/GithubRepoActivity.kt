@@ -47,8 +47,8 @@ class GithubRepoActivity : AppCompatActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        { result -> tv.setText("resultname") },
-//                        {result -> tv.setText(result.toString())},
+//                        { result -> tv.setText("resultname") },
+                        { result -> tv.setText(result.numOfPublicRepo.toString())},
                         { error -> Toast.makeText(this, error.message, Toast.LENGTH_LONG).show() }
                 )
     }
