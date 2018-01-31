@@ -1,6 +1,5 @@
-package com.example.pry.kotlind2.user
+package com.example.pry.kotlind2.randomuser
 
-import android.view.View
 import com.example.pry.kotlind2.di.NetworkModule
 import dagger.Module
 import dagger.Provides

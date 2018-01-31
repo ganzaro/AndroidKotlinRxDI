@@ -1,7 +1,7 @@
 package com.example.pry.kotlind2.di
 
-import com.example.pry.kotlind2.user.UserActivity
-import com.example.pry.kotlind2.user.UserActivityModule
+import com.example.pry.kotlind2.randomuser.UserActivity
+import com.example.pry.kotlind2.randomuser.UserActivityModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

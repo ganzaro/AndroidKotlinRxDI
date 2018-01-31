@@ -2,7 +2,6 @@ package com.example.pry.kotlind2.di
 
 import android.app.Application
 import com.example.pry.kotlind2.App
-import com.example.pry.kotlind2.user.UserActivity
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
