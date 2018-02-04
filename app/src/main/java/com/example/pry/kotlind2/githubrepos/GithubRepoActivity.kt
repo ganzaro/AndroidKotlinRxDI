@@ -12,6 +12,12 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
+import android.arch.lifecycle.ViewModelProviders
+import retrofit2.adapter.rxjava2.Result.response
+import android.R.attr.data
+import android.arch.lifecycle.Observer
+import com.example.pry.kotlind2.common.states.Resource
+
 
 /**
  * Created by pry on 31/01/2018.
@@ -21,7 +27,10 @@ class GithubRepoActivity : AppCompatActivity() {
     @Inject
     lateinit var mGithubRepo: GithubRepository
 
-    private var disposable: Disposable? = null
+    @Inject
+    lateinit var viewModelFactory:GithubRepoViewModelFactory
+
+    private lateinit var viewModel: GithubRepoViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,26 +39,45 @@ class GithubRepoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(GithubRepoViewModel::class.java!!)
+        viewModel.response.observe(this, Observer{ response -> processResponse(response!!) })
+
+        viewModel.getUserName()
+
+    }
+
+    private fun processResponse(response: Resource<String>) {
+        when (response.status) {
+            Resource.Status.LOADING -> renderLoadingState()
+
+            Resource.Status.SUCCESS -> renderDataState(response.data)
+
+            Resource.Status.ERROR -> renderErrorState(response.error)
         }
+    }
 
-
-        getUserGender()
-
+    private fun renderErrorState(error: Throwable?) {
 
     }
 
-    private fun getUserGender() {
+    private fun renderDataState(data: String?) {
         val tv = findViewById(R.id.textView) as TextView
-        disposable = mGithubRepo.getUserInfo("pry")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-//                        { result -> tv.setText("resultname") },
-                        { result -> tv.setText(result.numOfPublicRepo.toString())},
-                        { error -> Toast.makeText(this, error.message, Toast.LENGTH_LONG).show() }
-                )
+        tv.setText(data)
     }
+
+    private fun renderLoadingState() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+
+//    private fun getUserGender() {
+//        val tv = findViewById(R.id.textView) as TextView
+//        disposable = mGithubRepo.getUserInfo("pry")
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(
+//                        { result -> tv.setText(result.numOfPublicRepo.toString())},
+//                        { error -> Toast.makeText(this, error.message, Toast.LENGTH_LONG).show() }
+//                )
+//    }
 }

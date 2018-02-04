@@ -1,4 +1,17 @@
 
+implem mvvm as per proandroid greeting app,
+
+todo
+    resolve states data , response
+
+
+
+
+
+
+
+
+
 create di structure
 
 create auth functionality
