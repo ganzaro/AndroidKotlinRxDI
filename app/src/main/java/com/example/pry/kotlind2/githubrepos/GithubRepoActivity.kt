@@ -68,16 +68,4 @@ class GithubRepoActivity : AppCompatActivity() {
     private fun renderLoadingState() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
-
-//    private fun getUserGender() {
-//        val tv = findViewById(R.id.textView) as TextView
-//        disposable = mGithubRepo.getUserInfo("pry")
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(
-//                        { result -> tv.setText(result.numOfPublicRepo.toString())},
-//                        { error -> Toast.makeText(this, error.message, Toast.LENGTH_LONG).show() }
-//                )
-//    }
 }
