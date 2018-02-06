@@ -11,7 +11,7 @@ data class GithubRepo (@Json(name = "id")
                        @Json(name = "name")
                        var repoName: String,
                        @Json(name = "owner")
-                       var githubOwner: GithubOwner,
+                       var githubOwner: GithubUser,
                        @Json(name = "description")
                        var repoDesc: String
 )

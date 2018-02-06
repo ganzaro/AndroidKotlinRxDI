@@ -2,11 +2,6 @@ package com.example.pry.kotlind2.githubrepos
 
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel
-import android.widget.TextView
-import android.widget.Toast
-import com.example.pry.kotlind2.R
-import com.example.pry.kotlind2.githubrepos.dto.GithubOwner
-import com.example.pry.kotlind2.githubrepos.dto.GithubRepo
 import com.example.pry.kotlind2.common.SchedulersFacade
 import com.example.pry.kotlind2.common.states.Resource
 import io.reactivex.disposables.CompositeDisposable

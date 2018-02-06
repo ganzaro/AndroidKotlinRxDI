@@ -1,8 +1,8 @@
 package com.example.pry.kotlind2.githubrepos
 
-import com.example.pry.kotlind2.githubrepos.dto.GithubOwner
+import com.example.pry.kotlind2.githubrepos.dto.GithubUser
 import com.example.pry.kotlind2.githubrepos.dto.GithubRepo
-import io.reactivex.Observable
+import io.reactivex.Flowable
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -12,13 +12,13 @@ import retrofit2.http.Path
 interface IGithubApi {
 
     @GET("repositories")
-    fun getAllRepo() : Observable<List<GithubRepo>>
+    fun getAllRepo() : Flowable<List<GithubRepo>>
 
     @GET("users/{username}")
-    fun getUserInfo(@Path("username") username: String): Observable<GithubOwner>
+    fun getUserInfo(@Path("username") username: String): Flowable<GithubUser>
 
     @GET("users/{username}/repos")
-    fun getAllUserRepo(@Path("username") username: String): Observable<List<GithubRepo>>
+    fun getAllUserRepo(@Path("username") username: String): Flowable<List<GithubRepo>>
 
 }
 
@@ -29,7 +29,7 @@ interface IGithubApi {
 //    fun getAllRepo() : Call<List<GithubRepository>>
 //
 //    @GET("users/{username}")
-//    fun getUserInfo(@Path("username") username: String): Call<GithubOwner>
+//    fun getUserInfo(@Path("username") username: String): Call<GithubUser>
 //
 //    @GET("users/{username}/repos")
 //    fun getAllUserRepo(@Path("username") username: String): Call<List<GithubRepo>>

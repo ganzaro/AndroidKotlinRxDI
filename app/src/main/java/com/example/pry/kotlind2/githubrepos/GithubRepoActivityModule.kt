@@ -2,6 +2,7 @@ package com.example.pry.kotlind2.githubrepos
 
 import com.example.pry.kotlind2.di.NetworkModule
 import com.example.pry.kotlind2.common.SchedulersFacade
+import com.example.pry.kotlind2.githubrepos.db.GithubUserDao
 import dagger.Module
 import dagger.Provides
 
@@ -17,8 +18,10 @@ class GithubRepoActivityModule {
     }
 
     @Provides
-    fun provideGithubRepository(githubApi: IGithubApi): GithubRepository {
-        return GithubRepository(githubApi)
+    fun provideGithubRepository(githubApi: IGithubApi,
+                                githubUserDao: GithubUserDao,
+                                scheduler: SchedulersFacade): GithubRepository {
+        return GithubRepository(githubApi, githubUserDao, scheduler)
     }
 
     @Provides
